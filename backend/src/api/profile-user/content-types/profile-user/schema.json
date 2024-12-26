@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "profile_users",
+  "info": {
+    "singularName": "profile-user",
+    "pluralName": "profile-users",
+    "displayName": "UserProfile",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bio": {
+      "type": "text",
+      "required": true,
+      "maxLength": 7
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user_profile"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "additionalInfo": {
+      "type": "text"
+    },
+    "imgProfile": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

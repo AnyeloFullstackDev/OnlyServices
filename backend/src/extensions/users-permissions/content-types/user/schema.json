@@ -1,0 +1,141 @@
+{
+  "kind": "collectionType",
+  "collectionName": "up_users",
+  "info": {
+    "name": "user",
+    "description": "",
+    "singularName": "user",
+    "pluralName": "users",
+    "displayName": "User"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "username": {
+      "type": "string",
+      "minLength": 3,
+      "unique": true,
+      "configurable": false,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "confirmationToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "role": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.role",
+      "inversedBy": "users",
+      "configurable": false
+    },
+    "rolInAplication": {
+      "type": "enumeration",
+      "enum": [
+        "cliente",
+        "proveedor"
+      ]
+    },
+    "identificationType": {
+      "type": "enumeration",
+      "enum": [
+        "cedula",
+        "pasaporte",
+        "rif"
+      ]
+    },
+    "profilePicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "address": {
+      "type": "text"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "string"
+    },
+    "identificationNumber": {
+      "type": "string",
+      "required": true
+    },
+    "municipality": {
+      "type": "string"
+    },
+    "parish": {
+      "type": "string"
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::profile-user.profile-user",
+      "mappedBy": "users_permissions_user"
+    },
+    "user_reputation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-reputation.user-reputation",
+      "mappedBy": "reputation"
+    },
+    "user_reviewer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-review.user-review",
+      "inversedBy": "reviewer"
+    },
+    "user_review": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-review.user-review",
+      "inversedBy": "reviewee"
+    },
+    "fullName": {
+      "type": "string"
+    }
+  }
+}
