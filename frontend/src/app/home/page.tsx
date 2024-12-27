@@ -13,9 +13,9 @@ export default function Home() {
   {/* Imagen de fondo */}
   <Image
     src="/hero/ventasdeservicios.jpeg"
+    width={1200}
+    height={800}
     alt="Hero Image"
-    layout="fill"
-    objectFit="cover"
     className="w-full h-full"
   />
   

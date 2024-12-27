@@ -18,13 +18,13 @@ const ThemeToggle: React.FC = () => {
         className="fixed top-0 right-0 text-sm font-bold bg-white dark:bg-white text-white dark:text-black p-1 rounded-full shadow-md opacity-60 hover:opacity-100"
       >
         <Image
-          src={`/languagesIcons/${language === 'es' ? 'estadosUnidos-min.png' : 'venezuela-min.png'}`}
-          alt={language === 'es' ? 'Venezuela Flag' : 'USA Flag'}
-          width={24}
-          height={24}
-          className="inline-block rounded-full"
-        />
-      </button>
+            src={`/languagesIcons/${language === 'es' ? 'estadosUnidos-min.png' : 'venezuela-min.png'}`}
+            alt={language === 'es' ? 'Venezuela Flag' : 'USA Flag'}
+            width={24}
+            height={24}
+            style={{ width: 'auto', height: 'auto' }}
+          />      
+        </button>
     </div>
   );
 };
